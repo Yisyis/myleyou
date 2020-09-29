@@ -1,0 +1,37 @@
+server:
+  port: 8082
+spring:
+  application:
+    name: upload-service
+  servlet:
+    multipart:
+      max-file-size: 5MB # \u9650\u5236\u6587\u4EF6\u4E0A\u4F20\u7684\u5927\u5C0F
+# Eureka
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:10086/eureka
+  instance:
+    lease-renewal-interval-in-seconds: 5 # \u6BCF\u96945s\u53D1\u9001\u4E00\u6B21\u5FC3\u8DF3
+    lease-expiration-duration-in-seconds: 10 # 10s\u4E0D\u53D1\u9001\u5C31\u8FC7\u671F
+    prefer-ip-address: true
+    ip-address: 127.0.0.1
+    instance-id: ${spring.application.name}:${server.port}
+# ===================================================================
+# 分布式文件系统FDFS配置
+# ===================================================================
+fdfs:
+  so-timeout: 2500
+  connect-timeout: 600
+  thumb-image:             #缩略图生成参数
+    width: 60
+    height: 60
+  tracker-list:            #TrackerList参数,支持多个
+    - 192.168.24.101:22122
+ly:
+  upload:
+    baseUrl: http://image.leyou.com/
+    ALLOW_TYPES:
+      - image/png
+      - image/jpeg
+      - image/bmp

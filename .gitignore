@@ -1,0 +1,7 @@
+# Project exclude paths
+/ly-api-gateway/target/
+/ly-common/target/
+/ly-item/ly-item-interface/target/
+/ly-item/ly-item-service/target/
+/ly-registry/target/
+/ly-upload/target/
